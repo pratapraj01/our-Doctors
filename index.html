@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #e6e6e6;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px;
+        background-color: rgb(11, 78, 78);
+        color: white;
+        position: fixed;
+        top: 0%;
+        width: 100%;
+      }
+      ul {
+        display: flex;
+      }
+      ul li {
+        list-style: none;
+      }
+      ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        margin-inline: 20px;
+        color: white;
+      }
+      ul li a:hover {
+        color: black;
+        border-bottom: 2px solid black;
+      }
+      .logo {
+        font-size: 22px;
+      }
+      .main {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: rgb(16, 106, 106);
+        color: white;
+        height: 640px;
+      }
+      .mainText h1 {
+        font-size: 55px;
+      }
+      .mainText h3 {
+        font-size: 35px;
+        margin-top: 20px;
+      }
+      .mainText button {
+        width: 140px;
+        height: 40px;
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        border: none;
+        margin-top: 22px;
+      }
+      .mainText button:hover {
+        border: 2px solid black;
+        background-color: transparent;
+      }
+      .teams {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .teams .card {
+        width: 300px;
+        height: 390px;
+        background-color: #fff;
+        border-radius: 5px;
+        margin-inline: 20px;
+        margin-top: 22px;
+      }
+      .card img {
+        width: 100%;
+        height: 300px;
+        border-radius: 5px;
+      }
+      .card p {
+        margin-top: 11px;
+        margin-left: 11px;
+      }
+      .head {
+        text-align: center;
+        padding: 80px;
+      }
+      .speciality {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .speciality .spCard {
+        width: 300px;
+        padding: 22px;
+        background-color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 22px;
+        margin-inline: 20px;
+      }
+      .spCard img {
+        width: 200px;
+      }
+      .spCard p {
+        margin-top: 11px;
+      }
+      .reviews {
+        width: 800px;
+        height: 400px;
+        position: relative;
+        margin: auto;
+        overflow: hidden;
+      }
+      .patientReview {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /* background-color: #fff; */
+        transition: all 1s ease;
+      }
+      .patientReview img {
+        width: 300px;
+        margin-inline: 18px;
+        border-radius: 4px;
+      }
+      .contact {
+        width: 300px;
+        background-color: #fff;
+        padding: 22px;
+        border-radius: 4px;
+        text-align: center;
+        margin: auto;
+      }
+      .contact input {
+        width: 90%;
+        font-size: 18px;
+        padding: 9px;
+        margin-top: 22px;
+        border: none;
+        outline: none;
+        background-color: #e4e1e1;
+        border-radius: 2px;
+      }
+      .contact button {
+        width: 100px;
+        height: 30px;
+        background-color: rgb(13, 98, 98);
+        color: white;
+        font-size: 17px;
+        border: none;
+        margin-top: 22px;
+      }
+      .contact h1 {
+        color: rgb(16, 103, 103);
+      }
+      .footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 66px;
+        margin-top: 66px;
+        background-color: rgb(11, 76, 76);
+        color: white;
+      }
+      .text p {
+        margin-top: 12px;
+      }
+      .detail {
+        display: none;
+        position: fixed;
+        left: 50%;
+        right: 50%;
+        top: 5%;
+        transform: translate(-50%, 40%);
+        background-color: #fff;
+        padding: 22px;
+        width: 400px;
+        border-radius: 4px;
+      }
+      .content {
+        display: flex;
+        gap: 22px;
+      }
+      .content img {
+        width: 200px;
+        height: 250px;
+      }
+      .content p {
+        margin-top: 22px;
+      }
+      .detail button {
+        position: relative;
+        top: -23px;
+        left: -22px;
+        width: 30px;
+        height: 30px;
+        background-color: rgb(12, 94, 94);
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      #bar {
+        display: none;
+        font-size: 26px;
+      }
+      @media screen and (max-width: 1100px) {
+        .main {
+          display: block;
+          text-align: center;
+          /* height: auto; */
+        }
+        .mainText h1 {
+          margin-top: 76px;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        ul {
+          display: none;
+        }
+        #bar {
+          display: block;
+        }
+      }
+      @media screen and (max-width: 850px) {
+        .reviews {
+          width: 90%;
+        }
+        .patientReview img {
+          width: 40%;
+          height: 200px;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .mainText h1 {
+          font-size: 33px;
+        }
+        .mainText h3 {
+          font-size: 23px;
+        }
+        .main img {
+          width: 90%;
+        }
+        .reviews {
+          width: 80%;
+        }
+        .patientReview img {
+          width: 40%;
+          height: 160px;
+          margin-inline: 6px;
+        }
+        .contact {
+          width: 80%;
+        }
+        .detail {
+          width: 80%;
+        }
+        .content {
+          display: block;
+          text-align: center;
+        }
+        .content img {
+          width: 90%;
+        }
+      }
+    </style>
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Catamaran:wght@200&family=Courgette&family=Dancing+Script:wght@700&family=Edu+TAS+Beginner:wght@700&family=Lato:wght@300;900&family=Mukta:wght@700&family=Mulish:wght@300&family=Open+Sans&family=PT+Sans:ital,wght@1,700&family=Poppins:wght@300&family=Raleway:wght@100&family=Roboto&family=Roboto+Condensed:wght@700&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    /> -->
+    <!-- <script
+      src="https://kit.fontawesome.com/f30fac2c61.js"
+      crossorigin="anonymous"
+    ></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <h1>LifeCare</h1>
+        </div>
+        <i id="bar" class="fa-solid fa-bars"></i>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="#doctor">Doctor's</a></li>
+          <li><a href="#speciality">Speciality's</a></li>
+          <li><a href="#patient">Patient Reviews</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul>
+      </nav>
+      <div class="main">
+        <div class="mainText">
+          <h1>
+            The Hospital that <br />
+            Care for you
+          </h1>
+          <h3>Best Team's</h3>
+          <button>Show more</button>
+        </div>
+        <img src="mains.png" alt="" />
+      </div>
+      <div id="doctor">
+        <div class="head">
+          <h1>Our Doctor's</h1>
+        </div>
+        <div class="teams">
+          <div class="card">
+            <img src="./p3.jpg" alt="" />
+            <p>Alexa</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis?
+            </p>
+          </div>
+          <div class="card">
+            <img src="./p2.jpg" alt="" />
+            <p>Alexa</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis?
+            </p>
+          </div>
+          <div class="card">
+            <img src="./p5.jpg" alt="" />
+            <p>Alexa</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="speciality">
+        <div class="head">
+          <h1>Our Speciality's</h1>
+        </div>
+        <div class="speciality">
+          <div class="spCard">
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/dt3.jpg"
+              alt=""
+            />
+            <p>Knee Surgery</p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia.
+            </p>
+          </div>
+          <div class="spCard">
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/dt2.jpg"
+              alt=""
+            />
+            <p>Knee Surgery</p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia.
+            </p>
+          </div>
+          <div class="spCard">
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/p3.jpg"
+              alt=""
+            />
+            <p>Knee Surgery</p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="patient">
+        <div class="head">
+          <h1>Patient Review's</h1>
+        </div>
+        <div class="reviews">
+          <div class="patientReview">
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/p1.png"
+              alt=""
+            />
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/p2.png"
+              alt=""
+            />
+          </div>
+          <div class="patientReview">
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/p3.jpg"
+              alt=""
+            />
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/p6.jpg"
+              alt=""
+            />
+          </div>
+          <div class="patientReview">
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/s1.png"
+              alt=""
+            />
+            <img
+              src="https://raw.githubusercontent.com/shaikhsufyan/Basic-To-Advance-JavaScript-Project/e65dc73cd9850d39d650135dfc9fd03d61af6fdb/Hospital%20Website/s3.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div id="contact">
+        <div class="head">
+          <h1>Contact Us</h1>
+        </div>
+        <div class="contact">
+          <h1>Connect With Us</h1>
+          <input type="text" placeholder="Enter Email" id="email" />
+          <input type="password" placeholder="Enter password" id="pass" />
+          <button id="connectBtn">Connect</button>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="text">
+          <h3>About Us</h3>
+          <p>24 Hours</p>
+          <p>Top Doctor</p>
+          <p>Best Care</p>
+          <p>Patient</p>
+          <p></p>
+        </div>
+        <div class="text">
+          <h3>Speciality</h3>
+          <p>Knee surgery</p>
+          <p>Spin surgery</p>
+          <p>Leg surgery</p>
+          <p>Tendon surgery</p>
+          <p></p>
+        </div>
+        <div class="text">
+          <h3>Best Teams</h3>
+          <p>Doctors</p>
+          <p>Nursing</p>
+          <p>Staff</p>
+          <p>Hospital</p>
+          <p></p>
+        </div>
+        <div class="text">
+          <h3>Address</h3>
+          <p>Near MG Road</p>
+          <p>Galaxy Care</p>
+          <p>333-09093</p>
+          <p>09-883-090</p>
+        </div>
+      </div>
+      <div class="detail">
+        <button id="closeBtn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="content"></div>
+      </div>
+    </div>
+    <script>
+      let slide = document.querySelectorAll(".patientReview");
+      let card = document.querySelectorAll(".card");
+      let closeBtn = document.getElementById("closeBtn");
+      let connectBtn = document.getElementById("connectBtn");
+      let count = 0;
+      slide.forEach(function (slides, index) {
+        slides.style.left = `${index * 100}%`;
+      });
+      function myFun() {
+        slide.forEach(function (curVal) {
+          curVal.style.transform = `translateX(-${count * 100}%)`;
+        });
+      }
+      setInterval(function () {
+        count++;
+        if (count == slide.length) {
+          count = 0;
+        }
+        myFun();
+      }, 2000);
+      card.forEach(function (cards) {
+        cards.addEventListener("click", function () {
+          console.log(cards);
+          document.querySelector(".detail").style.display = "block";
+          document.querySelector(".content").innerHTML = `
+        <img src=${cards.firstElementChild.src} alt="">
+        <div class="contentText">
+                    <h1>Alexa Zoan</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ex accusantium eius magnam, esse repellat veritatis, consectetur aut perspiciatis dolor labore sapiente.</p>
+        </div>
+        `;
+          closeBtn.addEventListener("click", function () {
+            document.querySelector(".detail").style.display = "none";
+          });
+        });
+      });
+      connectBtn.addEventListener("click", function () {
+        let email = document.getElementById("email");
+        let pass = document.getElementById("pass");
+        if (email.value == "" && pass.value == "") {
+          alert("Enter Details");
+        } else {
+          alert("You Logged IN");
+        }
+      });
+    </script>
+  </body>
+</html>
